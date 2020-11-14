@@ -1,0 +1,116 @@
+﻿@model IEnumerable<W5_cafe.Models.product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<div class="container-fluid content-wrapper" id="content">
+    <!-- this is the Content Wrapper -->
+    <div class="container">
+        <div class="row-fluid content-inner">
+            <div id="left" class="span9">
+                <!-- ADD "span12" if no sidebar, or "span9" with sidebar -->
+                <div class="wrapper ">
+                    <div class="content">
+                        <div class="section article">
+                            <div class="content">
+                                <div class="img-simple span3 pull-left">
+                                    <div class="image" style="max-width: 100%;height: auto;">
+                                        <a href="" rel="nofollow" data-href="https://source.unsplash.com/1600x900/?coffee"><img  src="https://source.unsplash.com/1600x900/?coffee"></a>
+                                    </div>
+                                </div>
+                                <p><span style="font-family: georgia, palatino; font-size: 24px;"><span style="font-family: georgia, palatino;">Mình cà phê nhé</span></span></p> <p>“Cà phê nhé" - Một lời hẹn rất riêng của người Việt. Một lời ngỏ mộc mạc để mình ngồi lại bên nhau và sẻ chia câu chuyện của riêng mình.</p>
+                                <p><span data-mce-mark="1">Tại Trừ(-) Càfe, chúng tôi luôn trân trọng những câu chuyện và đề cao giá trị Kết nối con người. Chúng tôi mong muốn Trừ(-) Càfe sẽ trở thành “Nhà Cà Phê", nơi Trừ(-) Càfe, cmọi người xích lại gần nhau và tìm thấy niềm vui, sự sẻ chia thân tình bên những tách cà phê đượm hương, chất lượng.</span></p>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="content">
+                                <h3>Our Products</h3>
+                                <ul class="thumbnails column-article-section item-container">
+                                    @foreach (var item in Model)
+                                    {
+                                    <li class="span6">
+                                        <div class="img-simple span12 ">
+                                            <div class="image">
+                                                <img src="https://source.unsplash.com/1600x900/?coffee">
+                                            </div>
+                                        </div>
+
+                                        <h4>@Html.DisplayFor(modelItem => item.name)</h4>
+                                        <p>@Html.DisplayFor(modelItem => item.description)</p>
+                                        <h6>Price: ₫ @Html.DisplayFor(modelItem => item.price)</h6>
+                                    </li>
+                                    }
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="section">
+                            <h3>Combos</h3>
+                            <div class="content">
+                                <ul class="thumbnails column-article-section item-container">
+                                    @foreach (var e in ViewData["combo"] as List<W5_cafe.Models.combo>) { 
+                                        <li class="span6">
+                                            <div class="img-simple span12 ">
+                                                <div class="image">
+                                                    <a href="" rel="nofollow" data-ss="imagemodal" data-href="http://cdn.simplesite.com/i/63/0a/282319406567983715/i282319414620354374._szw1280h1280_.jpg">
+                                                        <img src="~/App_Data/@e.image">
+
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <h4><s:a href="%{getItem}" cssStyle="color:black;">@e.name</s:a></h4>
+                                            <p>@e.description</p>
+                                            <h6>Price: ₫@e.price</h6>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="section article" style=" font-style: italic;">
+
+                            <div class="content">
+                                <p><h2>Visit my cafe</h2></p> <p>“Cà phê nhé" - Một lời hẹn rất riêng của người Việt. Một lời ngỏ mộc mạc để mình ngồi lại bên nhau và sẻ chia câu chuyện của riêng mình.</p> <p>Khu Đô Thị FPT</p> <p>Phone: 12 1234 1234</p>
+                            </div>
+                        </div>
+                        <div class="section signature">
+                            <div class="content">
+
+                                <div class="signature-text-noimg">
+                                    <p>Kind regards</p>
+                                    <div class="signature-sign" style="font-family: Comic Sans MS;">
+                                        Trừ(-) Càfe
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right" class="span3">
+                <div class="sidebar">
+                    <div class="wrapper share-box">
+                        <div class="heading">
+                            <h4>Share this page</h4>
+                        </div>
+
+                        <div class="content">
+                            <ul style="display:inline;">
+                                <li><a id="share-facebook" href="http://www.simplesite.com/us-123cafe#"><i class="icon-facebook-sign"></i><span>Share on Facebook</span></a></li>
+                                <li><a id="share-twitter" href="http://www.simplesite.com/us-123cafe#"><i class="icon-twitter-sign"></i><span>Share on Twitter</span></a></li>
+                                <li><a id="share-google-plus" href="http://www.simplesite.com/us-123cafe#"><i class="icon-google-plus-sign"></i><span>Share on Google+</span></a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
